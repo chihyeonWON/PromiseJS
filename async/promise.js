@@ -11,7 +11,7 @@ const promise = new Promise((resolve, reject) => {
     console.log('doing something...');
     setTimeout(() => {
         //resolve('ellie');
-        reject(new Error('no network'));
+        reject(new Error('no network')); 
     }, 2000)
 });
 
@@ -22,4 +22,7 @@ promise
     }) // then이 되고 promise가 다시 호출 된다음 catch가 실행되는 체인
     .catch(error => {
         console.log(error); 
-    })
+    }) // promise의 성공 여부와 상관없이 호출되는 finally 함수
+    .finally(() => {
+        console.log('finally');
+    });
