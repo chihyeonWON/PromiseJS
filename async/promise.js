@@ -10,11 +10,16 @@ const promise = new Promise((resolve, reject) => {
     // doing some heavy work (network, read files)
     console.log('doing something...');
     setTimeout(() => {
-        resolve('ellie');
+        //resolve('ellie');
+        reject(new Error('no network'));
     }, 2000)
 });
 
 // 2. Consumers: then, catch, finally 
-promise.then((value) => {
-     console.log(value); // value -> ellie
-})
+promise
+    .then((value) => {
+         console.log(value); // value -> ellie
+    }) // then이 되고 promise가 다시 호출 된다음 catch가 실행되는 체인
+    .catch(error => {
+        console.log(error); 
+    })
