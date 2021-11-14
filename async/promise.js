@@ -13,3 +13,8 @@ const promise = new Promise((resolve, reject) => {
         resolve('ellie');
     }, 2000)
 });
+
+// 2. Consumers: then, catch, finally 
+promise.then((value) => {
+     console.log(value); // value -> ellie
+})
