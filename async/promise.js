@@ -26,3 +26,22 @@ promise
     .finally(() => {
         console.log('finally');
     });
+    
+//3. Promise chaining
+const fetchNumber = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve(1)
+    }, 2000)
+});
+
+fetchNumber
+    .then(num => num * 2) // 2
+    .then(num => num * 3) // 6
+    .then(num => {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve(num - 1)
+            }, 1000)
+        });
+    })
+    .then(num => console.log(num)); // 5 
