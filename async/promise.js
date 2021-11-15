@@ -45,3 +45,5 @@ fetchNumber
         });
     })
     .then(num => console.log(num)); // 5 
+
+// 4. Error Handling
